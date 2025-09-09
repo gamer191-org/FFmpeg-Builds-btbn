@@ -44,7 +44,7 @@ ffbuild_dockerbuild() {
     echo "LISTING INSTALLED PACKAGES"
     apt list --installed
     apt update
-    apt install ocaml-findlib
+    apt -y install ocaml-findlib
     echo "RUNNING ocamlfind ocamlc -package num"
     ocamlfind ocamlc -package num
     make -j$(nproc)
