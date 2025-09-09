@@ -43,6 +43,7 @@ ffbuild_dockerbuild() {
     ./bootstrap.sh "${myconf[@]}"
     echo "LISTING INSTALLED PACKAGES"
     apt list --installed
+    apt update
     apt install ocaml-findlib
     echo "RUNNING ocamlfind ocamlc -package num"
     ocamlfind ocamlc -package num
