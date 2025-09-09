@@ -43,6 +43,9 @@ ffbuild_dockerbuild() {
     ./bootstrap.sh "${myconf[@]}"
     echo "LISTING INSTALLED PACKAGES"
     apt list --installed
+    apt install ocaml-findlib
+    echo "RUNNING ocamlfind ocamlc -package num"
+    ocamlfind ocamlc -package num
     make -j$(nproc)
     make install DESTDIR="$FFBUILD_DESTDIR"
 }
