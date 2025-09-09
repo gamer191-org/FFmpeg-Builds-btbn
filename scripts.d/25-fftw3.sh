@@ -41,6 +41,8 @@ ffbuild_dockerbuild() {
     sed -i 's/windows.h/process.h/' configure.ac
 
     ./bootstrap.sh "${myconf[@]}"
+    echo "LISTING INSTALLED PACKAGES"
+    apt list --installed
     make -j$(nproc)
     make install DESTDIR="$FFBUILD_DESTDIR"
 }
